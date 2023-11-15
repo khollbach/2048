@@ -1,0 +1,64 @@
+UI ideas...
+max dims 40x24
+
+10 left-padding
+8  top-padding
+
+2048 2048 2048 2048
+
+   2    4   16  128
+
+2048 2048 2048 2048
+
+   2        16
+
+---
+
+
+   2    4
+
+
+
+   2        16
+
+---
+
+I kinda like the minimal rendering of blank spaces for empty tiles.
+
+When the program starts, the user should just see the two 'randomly' positioned
+"2" tiles.
+
+Each swipe (arrow keys, WASD/wasd, or IJKL/ijkl) should send the tiles in that dir'n.
+
+There's one pass of combining that happens here (todo: understand the details)
+
+After combining, a new (2 or 4 -- 50% chance each) appears in a random blank space. (If none, beep and halt.)
+
+When the user gets 2048, beep and halt.
+
+---
+
+Milestones:
+[x] define a game board struct
+[ ] render a game board to the screen
+    [x] figure out ASCII mapping
+    [ ] test out the draw-board function
+[x] generate the initial game board
+    (hardcoded for now; randomness can come later)
+[ ] implement swiping effect on the game board
+    (how does combining work? -- break this up)
+[ ] generate new tiles
+[ ] accept keyboard input
+[ ] check win/loss
+[ ] test it!
+
+Misc extensions:
+[ ] idiomatic printing... core::fmt::Write? (std::io::Write? probabaly not!)
+    (is there a struct that accepts text, and tracks the cursor?)
+    (does the apple //e already do this somewhere? with asm routines??)
+
+---
+
+Misc:
+[x] do we need the main.c / rust_main thing? Or can we get llvm to see our main function from rust?
+[ ] What happens when we panic? (What do we want to happen?)
